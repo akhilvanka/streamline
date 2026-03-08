@@ -1,0 +1,25 @@
+[package]
+name = "streamline"
+version = "0.1.0"
+edition = "2021"
+description = "High-performance real-time stream processing engine with typed operator DAGs, event-time windowing, backpressure, and checkpointing"
+
+[dependencies]
+crossbeam-channel = "0.5"
+crossbeam-deque   = "0.8"
+rayon             = "1"
+serde             = { version = "1", features = ["derive"] }
+serde_json        = "1"
+rand              = "0.8"
+parking_lot       = "0.12"
+dashmap           = "5"
+anyhow            = "1"
+thiserror         = "1"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bin]]
+name = "streamline"
+path = "src/main.rs"
+
