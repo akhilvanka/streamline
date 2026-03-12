@@ -1,12 +1,3 @@
-/// Bounded, lock-free channels between pipeline operators.
-///
-/// Each operator pair is connected by a `Pipe<T>`: a bounded MPSC channel.
-/// When the channel is full the sender blocks briefly then drops the record
-/// if backpressure is not resolved — the `Metrics` counter tracks drops.
-///
-/// The backpressure model: if a fast producer saturates a slow consumer,
-/// we stop accepting new records from the source rather than buffering
-/// unboundedly (which would cause OOM on long-running pipelines).
 use crossbeam_channel::{bounded, Receiver, Sender, TrySendError};
 use std::time::Duration;
 
