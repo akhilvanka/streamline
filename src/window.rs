@@ -1,13 +1,3 @@
-/// Event-time windowing with watermark-based triggering.
-///
-/// Watermarks represent the notion of "the stream has seen all events
-/// up to timestamp T." When a watermark advances past a window's end,
-/// that window is closed and its aggregate emitted.
-///
-/// Window types:
-///   Tumbling — non-overlapping fixed-size windows.
-///   Sliding  — overlapping windows (step < size).
-///   Session  — gap-based: a new window starts after a gap >= timeout.
 use std::collections::BTreeMap;
 use std::time::Duration;
 
